@@ -1,0 +1,27 @@
+
+Working with Emscripten
+This code demonstrates how to incoporate and run a Javascript smart contract code from a C++ code.
+
+System Requirements
+1. EMSDK
+2. Nodejs
+3. MGWIN C++ Compiler
+4. web3
+5. truffle hd wallet provider
+
+Steps to setup development environment
+1. Download and install MGWIN C++ compiler from 
+2. Download and install Nodejs
+3. Install web3 library using npm install web3
+4. Install hdwallet-provider using npm install @truffle/hdwallet-provider
+3. Download EMSDK from git clone https://github.com/emscripten-core/emsdk.git
+4. Follow the link https://sam.hooke.me/note/2022/04/setting-up-emscripten-on-windows-10/ to confiugre emsdk
+
+To run the Code, open the esdk folder with VSCode
+The C++ file that contains the javascript code can be found in the myCodes directory
+The file name is tescode.cpp
+To compile the code, use the command:  ./em++ -std=c++11 mycodes/tescode.cpp  -O3 -s WASM=1 -o test.wasm -o mycodes/test.js -s EXPORTED_RUNTIME_METHODS='["cwrap"]' to compile the code
+
+To run the code, use the command: node myCodes/test.js
+
+
